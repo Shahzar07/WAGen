@@ -551,7 +551,7 @@ def main():
     meter = pyln.Meter(SR)
     for _ in range(3):  # converge on -14 LUFS with a -1.5 dBTP ceiling
         lufs = meter.integrated_loudness(y)
-        y = limit(y * 10 ** ((-14.0 - lufs) / 20), -1.8)
+        y = limit(y * 10 ** ((-14.0 - lufs) / 20), -3.8)
     y[-secs(0.02):] *= np.linspace(1, 0, secs(0.02))[:, None]
     lufs2 = meter.integrated_loudness(y)
     tp = 20 * np.log10(np.max(np.abs(signal.resample_poly(y, 4, 1, axis=0))))

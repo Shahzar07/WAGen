@@ -12,6 +12,6 @@ ffmpeg -hide_banner -y -i "$SILENT" -i "$MIX" -map 0:v:0 -map 1:a:0 \
   -c:v libx264 -profile:v high -level:v 4.2 -preset slow -crf 17 -maxrate 11M -bufsize 22M \
   -g 60 -keyint_min 30 -r 30 \
   -colorspace bt709 -color_primaries bt709 -color_trc bt709 -color_range tv \
-  -c:a aac -b:a 256k -ar 48000 -ac 2 \
+  -c:a aac -b:a 320k -ar 48000 -ac 2 \
   -t 60 -movflags +faststart "$OUT"
 echo "wrote $OUT"

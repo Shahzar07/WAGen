@@ -4,6 +4,8 @@
 
 **Final video:** [`out/nosh-whatsapp-ai-agent-reel-60s-1080x1920.mp4`](out/nosh-whatsapp-ai-agent-reel-60s-1080x1920.mp4)
 
+Suggested ad cover frame: [`out/cover-1080x1920.jpg`](out/cover-1080x1920.jpg) (0:03.3, headline plus both instant replies).
+
 ## Creative direction: "The night shift"
 
 The film plays out over one UAE night. It opens on a quiet night sky over a stylised skyline
@@ -51,7 +53,8 @@ Everything reads with sound off.
 * Sound design: all effects are synthesised in [`audio/build_audio.py`](audio/build_audio.py): notification chimes,
   impacts, whooshes, pops, typing, ticks, card flips, a tempo locked snare build and a riser. They are placed from
   [`audio/cues.json`](audio/cues.json), which the animation timeline exports, so picture and sound share one clock.
-* Master: -14 LUFS integrated, about -1.8 dBTP true peak, 48 kHz stereo AAC 256 kbps.
+* Master: -14 LUFS integrated, about -2.2 dBTP true peak after encoding, 48 kHz stereo AAC 320 kbps
+  (the native ffmpeg AAC encoder produced isolated overshoot spikes at 256 kbps).
 
 ## Rebuild
 
