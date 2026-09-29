@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nosh WhatsApp AI Agent Reel</title>
+<meta name="viewport" content="width=1080, height=1920">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="stage"></div>
+<script src="src/lib.js"></script>
+<script src="src/bg.js"></script>
+<script src="src/components.js"></script>
+<script src="src/main.js"></script>
+<script src="src/scenes/s1_hook.js"></script>
+<script src="src/scenes/s2_problem.js"></script>
+<script src="src/scenes/s3_solution.js"></script>
+<script src="src/scenes/s4_features.js"></script>
+<script src="src/scenes/s5_proof.js"></script>
+<script src="src/scenes/s6_offer.js"></script>
+<script src="src/scenes/s7_cta.js"></script>
+<script>
+  (async () => {
+    await initShowreel();
+    const q = new URLSearchParams(location.search);
+    if (q.has('guides')) {
+      const gd = document.createElement('div');
+      gd.id = 'guides';
+      gd.className = 'layer';
+      gd.innerHTML = '<div style="position:absolute;left:0;top:0;width:1080px;height:269px;background:rgba(255,0,80,.18);border-bottom:2px dashed #ff3b6b"></div>' +
+        '<div style="position:absolute;left:0;top:1248px;width:1080px;height:672px;background:rgba(255,0,80,.18);border-top:2px dashed #ff3b6b"></div>' +
+        '<div style="position:absolute;left:0;top:0;width:65px;height:1920px;background:rgba(255,0,80,.12)"></div>' +
+        '<div style="position:absolute;right:0;top:0;width:65px;height:1920px;background:rgba(255,0,80,.12)"></div>';
+      document.getElementById('stage').appendChild(gd);
+    }
+    if (q.has('t')) renderFrame(parseFloat(q.get('t')));
+    if (q.has('play')) {
+      const t0 = performance.now();
+      const loop = () => { renderFrame(((performance.now() - t0) / 1000) % 60); requestAnimationFrame(loop); };
+      loop();
+    }
+  })();
+</script>
+</body>
+</html>

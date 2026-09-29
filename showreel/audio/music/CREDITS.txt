@@ -1,0 +1,8 @@
+Track:   Fireworks
+Artist:  Alexander Nakarada (alexandernakarada.bandcamp.com)
+Source:  FreePD.com, public domain music library (site closed in 2025)
+         Mirror of the FreePD catalogue: https://archive.org/details/freepd  (electronic/Fireworks.mp3)
+License: Public domain (CC0). Free for commercial use, no attribution required.
+
+Used in the Nosh AI Automation WhatsApp AI agent Reels ad from 39.068 s to 94.8 s of the track,
+aligned so the drop (51.376 s) lands on the "One WhatsApp." reveal at 12.308 s.

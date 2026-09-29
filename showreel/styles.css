@@ -1,0 +1,169 @@
+:root {
+  --bg: #120c19;
+  --bg-deep: #0a0710;
+  --card: #1a1128;
+  --card-2: #1e1530;
+  --bubble-in: #241a3a;
+  --line: rgba(178, 146, 249, 0.16);
+  --line-2: rgba(178, 146, 249, 0.28);
+  --lav: #b292f9;
+  --lav-2: #c9afff;
+  --lav-3: #e6def2;
+  --muted: #b9b0c9;
+  --muted-2: #8a7c9d;
+  --muted-3: #6b6280;
+  --green: #25d366;
+  --mint: #9de8b0;
+  --amber: #f2a65a;
+  --ink: #1a1128;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  font-kerning: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
+}
+
+#stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.layer { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+.abs { position: absolute; }
+.scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 760px; }
+.mono { font-family: 'Space Mono', monospace; }
+.ar { font-family: 'IBM Plex Sans Arabic', 'Poppins', sans-serif; direction: rtl; unicode-bidi: isolate; }
+
+/* Type */
+.eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lav-2);
+  white-space: nowrap;
+}
+.h-xl { font-weight: 600; font-size: 150px; line-height: 1.02; letter-spacing: -0.035em; }
+.h-l { font-weight: 600; font-size: 104px; line-height: 1.06; letter-spacing: -0.03em; }
+.h-m { font-weight: 600; font-size: 88px; line-height: 1.08; letter-spacing: -0.025em; }
+.sub { font-weight: 400; font-size: 44px; line-height: 1.38; color: var(--muted); letter-spacing: -0.005em; }
+.lav { color: var(--lav); }
+.mint { color: var(--mint); }
+.amber { color: var(--amber); }
+
+.line { display: block; overflow: hidden; padding: 0.06em 0.04em 0.14em; margin: -0.06em -0.04em -0.14em; }
+.line > .in { display: inline-block; white-space: nowrap; will-change: transform; }
+
+/* Pills */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  height: 76px;
+  padding: 0 34px;
+  border-radius: 999px;
+  background: rgba(178, 146, 249, 0.08);
+  border: 2px solid var(--line-2);
+  color: var(--lav-2);
+  font-size: 32px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.pill .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--green); box-shadow: 0 0 18px rgba(37, 211, 102, 0.8); }
+
+/* Chat card, sized up from the landing page widget */
+.chat {
+  position: absolute;
+  border-radius: 48px;
+  background: linear-gradient(180deg, rgba(30, 21, 48, 0.94), rgba(22, 15, 34, 0.94));
+  border: 2px solid var(--line);
+  box-shadow: 0 60px 140px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.02) inset, 0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  overflow: hidden;
+}
+.chat-head {
+  position: absolute; left: 0; top: 0; right: 0;
+  height: 150px;
+  display: flex; align-items: center; gap: 28px;
+  padding: 0 44px;
+  border-bottom: 2px solid var(--line);
+  background: rgba(18, 12, 25, 0.35);
+}
+.avatar {
+  width: 78px; height: 78px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--lav); color: var(--ink);
+  font-weight: 700; font-size: 36px;
+  flex: none;
+}
+.chat-title { font-weight: 600; font-size: 38px; color: #fff; line-height: 1.15; white-space: nowrap; }
+.chat-status { font-weight: 500; font-size: 28px; color: var(--mint); line-height: 1.3; white-space: nowrap; }
+.chat-view { position: absolute; left: 0; right: 0; top: 152px; bottom: 0; overflow: hidden; }
+.chat-list { position: absolute; left: 0; top: 0; width: 100%; }
+.msg { position: absolute; left: 40px; right: 40px; }
+.bubble {
+  display: inline-block;
+  white-space: pre-line;
+  max-width: 760px;
+  padding: 24px 32px;
+  font-size: 35px;
+  line-height: 1.42;
+  border-radius: 38px 38px 38px 10px;
+  background: var(--bubble-in);
+  border: 2px solid var(--line);
+  color: var(--lav-3);
+}
+.msg.out { text-align: right; }
+.msg.out .bubble {
+  background: var(--lav);
+  border-color: transparent;
+  color: var(--ink);
+  font-weight: 500;
+  border-radius: 38px 38px 10px 38px;
+  text-align: left;
+}
+.bubble.ar-b { font-family: 'IBM Plex Sans Arabic', 'Poppins', sans-serif; direction: rtl; text-align: right; font-size: 38px; line-height: 1.55; }
+.msg.out .bubble.ar-b { text-align: right; }
+.meta { font-size: 25px; color: var(--muted-2); margin-top: 10px; font-weight: 500; }
+.msg.out .meta { color: var(--mint); font-weight: 600; font-size: 27px; }
+.typing { display: inline-flex; gap: 12px; padding: 30px 34px; border-radius: 38px 38px 38px 10px; background: var(--bubble-in); border: 2px solid var(--line); }
+.msg.out .typing { border-radius: 38px 38px 10px 38px; background: rgba(178, 146, 249, 0.22); border-color: transparent; }
+.typing i { width: 16px; height: 16px; border-radius: 50%; background: var(--lav-2); display: block; }
+
+/* Generic card */
+.card {
+  position: absolute;
+  border-radius: 40px;
+  background: linear-gradient(180deg, rgba(34, 24, 54, 0.95), rgba(26, 17, 40, 0.95));
+  border: 2px solid var(--line);
+  box-shadow: 0 50px 120px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 16px;
+  height: 116px; padding: 0 60px; border-radius: 999px;
+  background: var(--lav); color: var(--ink);
+  font-weight: 700; font-size: 42px; white-space: nowrap;
+  box-shadow: 0 24px 70px rgba(178, 146, 249, 0.35);
+}
+
+#guides { pointer-events: none; }
